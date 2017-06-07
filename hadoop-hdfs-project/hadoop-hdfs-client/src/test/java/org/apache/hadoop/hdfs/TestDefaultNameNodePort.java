@@ -53,6 +53,8 @@ public class TestDefaultNameNodePort {
     FileSystem.setDefaultUri(conf, "foo");
     assertEquals(DFSUtilClient.getNNAddress(conf).getPort(),
         HdfsClientConfigKeys.DFS_NAMENODE_RPC_PORT_DEFAULT);
+    FileSystem.setDefaultUri(conf, "foo:555");
+    assertEquals(DFSUtilClient.getNNAddress(conf).getPort(), 555);
   }
 
   @Test
